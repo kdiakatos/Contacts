@@ -16,10 +16,6 @@ namespace DataAccessLayer.Repositories
             _context = context;
         }
 
-        /// <summary>
-        /// finds and shows all Contacts
-        /// </summary>
-        /// <returns></returns>
         public List<Contact> GetAllContacts()
         {
             var allcontacts = new List<Contact>();
@@ -27,25 +23,12 @@ namespace DataAccessLayer.Repositories
             return allcontacts;
         }
 
-        /// <summary>
-        /// Add new Contact 
-        /// </summary>
-        /// <param name="contact"></param>
-        /// <returns></returns>
         public Contact CreateContact(Contact contact)
         {
             try
             {
                 _context.Contacts.Add(contact);
                 _context.SaveChanges();
-                //foreach(var item in contactNumbers)
-                //{
-                //    item.
-                //    item.Contact.ContactID = contact.ContactID;
-                //}
-                //_context.ContactNumbers.AddRange(contactNumbers);
-                //_context.SaveChanges();
-
             }
             catch (Exception ex)
             {
@@ -53,12 +36,7 @@ namespace DataAccessLayer.Repositories
             }
             return contact;
         }
-
-        /// <summary>
-        /// find contact and delete
-        /// </summary>
-        /// <param name="id"></param>
-        /// <returns></returns>
+        
         public bool DeleteContact(long id)
         {
             var deleteStatus = false;
@@ -71,12 +49,7 @@ namespace DataAccessLayer.Repositories
             }
             return deleteStatus;
         }
-
-        /// <summary>
-        /// find contact update and save
-        /// </summary>
-        /// <param name="contact"></param>
-        /// <returns></returns>
+        
         public Contact UpdateContact(Contact contact)
         {
             var dbRow = _context.Contacts.SingleOrDefault(c => c.ContactID == contact.ContactID);
@@ -94,15 +67,7 @@ namespace DataAccessLayer.Repositories
             }
             return contact;
         }
-           
-          
         
-
-        /// <summary>
-        /// get only user's contact
-        /// </summary>
-        /// <param name="id"></param>
-        /// <returns></returns>
         public Contact GetContactById(long id)
         {
             var result= _context.Contacts.SingleOrDefault(a => a.ContactID == id);
