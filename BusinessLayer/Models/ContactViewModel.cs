@@ -11,6 +11,7 @@ namespace BusinessLayer.Models
         public long ContactID { get; set; }
 
         [Required]
+        [EmailAddress]
         public string Email { get; set; }
 
         [Required]
@@ -20,10 +21,18 @@ namespace BusinessLayer.Models
         public string LastName { get; set; }
 
         public string Address { get; set; }
+        
 
+        [RegularExpression(@"^(\d{10})$", ErrorMessage = "Wrong mobile")]
         public string Phone1 { get; set; }
+
+        [RegularExpression(@"^(\d{10})$", ErrorMessage = "Wrong mobile")]
         public string Phone2 { get; set; }
+
+        [RegularExpression(@"^(\d{10})$", ErrorMessage = "Wrong mobile")]
         public string Phone3 { get; set; }
+
+        [RegularExpression(@"^(\d{10})$", ErrorMessage = "Wrong mobile")]
         public string Phone4 { get; set; }
 
     }
